@@ -1,0 +1,35 @@
+﻿@model List<SchoolManagement.Models.Course>
+
+@{
+    ViewBag.Title = "Courses";
+}
+
+<h2>Courses</h2>
+<p>
+    <input type="button"class="btn btn-default"value="Create New"onclick="location.href='@Url.Action("Create", "Course")'" />
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Credits</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.CourseID</td>
+                <td>@i.Title</td>
+                <td>@i.Credits</td>
+                <td>
+                    <input type="button" class="btn btn-primary" value="Edit" onclick="location.href='@Url.Action("Edit", "Course")'" />
+                    <input type="button" class="btn btn-danger" value="Delete" onclick="location.href='@Url.Action("Delete", "Course")'" />
+                    <input type="button" class="btn btn-info" value="Details" onclick="location.href='@Url.Action("Details", "Course")'" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
